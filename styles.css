@@ -391,4 +391,39 @@ nav {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+    /* Hide brand text on mobile */
+    .nav-brand {
+        display: none;
+    }
+    
+    /* Hide tagline on mobile */
+    .tagline {
+        display: none;
+    }
+    
+    /* Center navigation links at the top */
+    nav {
+        justify-content: center;
+        height: 60px;
+        padding: 0;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: space-around;
+        padding: 0 1rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
+    /* Hide presentation text on mobile */
+    .presentation {
+        display: none;
+    }
 } 
