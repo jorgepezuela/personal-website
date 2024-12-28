@@ -422,20 +422,35 @@ nav {
         font-size: 0.8rem;
     }
 
+    /* Adjust hero section for mobile */
+    .hero {
+        min-height: 100vh;
+        padding: 0 1rem;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
     /* Adjust presentation for mobile */
     .hero-content {
         width: 100%;
-        margin-top: 60px;
+        margin-top: 100px;
         align-items: center;
         text-align: center;
+        padding: 0;
     }
 
     .presentation {
-        font-size: 1.2rem;
-        margin: 0;
-        color: var(--secondary-text);
-        line-height: 1.8;
-        opacity: 0;
-        animation: slideInFromRight 0.8s ease-out forwards;
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 0 1rem;
+        opacity: 1;
+        transform: none;
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Hide contact info and social bar on mobile */
+    .contact-info,
+    .social-bar {
+        display: none;
     }
 }
