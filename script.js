@@ -52,26 +52,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('show');
-            const icon = menuBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        });
-    });
-
-    // Add smooth page transitions
+    // Handle navigation with proper paths
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const href = this.getAttribute('href');
             
+            // Get the href and ensure it works with GitHub Pages
+            let href = this.getAttribute('href');
+            
+            // Handle root path for index.html
+            if (href === 'index.html') {
+                href = './';
+            }
+            
+            // Add trailing slash for GitHub Pages if needed
+            if (!href.endsWith('/') && !href.endsWith('.html')) {
+                href += '/';
+            }
+            
+            // Get the base URL for GitHub Pages
+            const baseUrl = window.location.pathname.split('/').slice(0, -1).join('/');
+            const fullPath = baseUrl + '/' + href;
+            
+            // Close mobile menu
+            navLinks.classList.remove('show');
+            const icon = menuBtn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+            
+            // Smooth transition
             document.body.style.opacity = 0;
-            
             setTimeout(() => {
-                window.location.href = href;
+                window.location.href = fullPath;
             }, 300);
         });
     });
