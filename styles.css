@@ -422,8 +422,17 @@ nav {
         font-size: 0.8rem;
     }
 
-    /* Hide presentation text on mobile */
+    /* Adjust presentation for mobile */
+    .hero-content {
+        width: 100%;
+        margin-top: 60px;
+        align-items: center;
+        text-align: center;
+    }
+
     .presentation {
-        display: none;
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 0 1rem;
     }
 } 
